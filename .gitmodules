@@ -1,0 +1,3 @@
+[submodule "src/TRAPD_md"]
+	path = src/TRAPD_md
+	url = https://github.com/biobai/TRAPD.git
