@@ -21,7 +21,7 @@ get the coverage for at least dp>10 as suggested at TRAPD (https://github.com/mh
 `bedtools intersect -a gnomad.dp10.bed -b cases.dp10.bed | sort -V -k1,1n -k2,2n | bedtools merge -i stdin > combined.dp10.bed`
 
 ## 3. redo VEP annotation
-
+Because the default VEP annotation of gnomAD is based on different VEP vesion from the VEP that we have, it's better to re-do VEP annotation for gnomAD data to keep all genes annotation up with case.
 `/scratch/cqs/softwares/ensembl-vep/vep -i gnomad.exomes.r2.1.1.sites.vcf.bgz --cache --dir_cache /scratch/cqs/references/vep_data -o gnomAD.exome.vep.vcf --fork 10 --assembly GRCh37 --offline  --variant_class –-vcf --canonical --symbol`
 `bgzip -@ 10 gnomAD.exome.vep.vcf`
 `tabix -p vcf gnomAD.exome.vep.vcf.gz`
